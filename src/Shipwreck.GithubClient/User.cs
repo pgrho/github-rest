@@ -27,5 +27,45 @@ namespace Shipwreck.GithubClient
         [DefaultValue(null)]
         [DataMember, JsonProperty("ldap_distinguished_name")]
         public string LdapDistinguishedName { get; set; }
+
+        #region Url
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("followers_url")]
+        public string FollowersUrl { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("following_url")]
+        public string FollowingUrl { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("gists_url")]
+        public string GistsUrl { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("starred_url")]
+        public string StarredUrl { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("subscriptions_url")]
+        public string SubscriptionsUrl { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("organizations_url")]
+        public string OrganizationsUrl { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("repos_url")]
+        public string ReposUrl { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("events_url")]
+        public string EventsUrl { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("received_events_url")]
+        public string ReceivedEventsUrl { get; set; }
+
+        #endregion
     }
 }

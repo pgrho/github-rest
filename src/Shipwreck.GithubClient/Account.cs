@@ -14,6 +14,10 @@ namespace Shipwreck.GithubClient
         public string AvatarUrl { get; set; }
 
         [DefaultValue(null)]
+        [DataMember, JsonProperty("gravatar_id")]
+        public string GravatarId { get; set; }
+
+        [DefaultValue(null)]
         [DataMember, JsonProperty("bio")]
         public string Bio { get; set; }
 
