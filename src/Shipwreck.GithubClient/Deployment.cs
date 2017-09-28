@@ -38,12 +38,28 @@ namespace Shipwreck.GithubClient
         public DateTimeOffset UpdatedAt { get; set; }
 
         [DefaultValue(null)]
+        [DataMember, JsonProperty("ref")]
+        public string Ref { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("task")]
+        public string Task { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("environment")]
+        public string Environment { get; set; }
+
+        [DefaultValue(null)]
         [DataMember, JsonProperty("description")]
         public string Description { get; set; }
 
         [DefaultValue(null)]
         [DataMember, JsonProperty("statuses_url")]
         public string StatusesUrl { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("repository_url")]
+        public string RepositoryUrl { get; set; }
 
         [DefaultValue(false)]
         [DataMember, JsonProperty("transient_environment")]
