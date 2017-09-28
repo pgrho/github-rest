@@ -1,0 +1,89 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+
+    <RootNamespace>Shipwreck.GithubClient</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Events\CommitCommentEvent.json" />
+    <None Remove="Events\CreateEvent.json" />
+    <None Remove="Events\DeleteEvent.json" />
+    <None Remove="Events\DeploymentEvent.json" />
+    <None Remove="Events\DeploymentStatusEvent.json" />
+    <None Remove="Events\ForkEvent.json" />
+    <None Remove="Events\GollumEvent.json" />
+    <None Remove="Events\InstallationEvent.json" />
+    <None Remove="Events\InstallationRepositoriesEvent.json" />
+    <None Remove="Events\IssueCommentEvent.json" />
+    <None Remove="Events\IssuesEvent.json" />
+    <None Remove="Events\LabelEvent.json" />
+    <None Remove="Events\MarketplacePurchaseEvent.json" />
+    <None Remove="Events\MemberEvent.json" />
+    <None Remove="Events\MembershipEvent.json" />
+    <None Remove="Events\MilestoneEvent.json" />
+    <None Remove="Events\OrganizationEvent.json" />
+    <None Remove="Events\OrgBlockEvent.json" />
+    <None Remove="Events\PageBuildEvent.json" />
+    <None Remove="Events\ProjectCardEvent.json" />
+    <None Remove="Events\ProjectColumnEvent.json" />
+    <None Remove="Events\ProjectEvent.json" />
+    <None Remove="Events\PublicEvent.json" />
+    <None Remove="Events\PullRequestEvent.json" />
+    <None Remove="Events\PullRequestReviewCommentEvent.json" />
+    <None Remove="Events\PullRequestReviewEvent.json" />
+    <None Remove="Events\PushEvent.json" />
+    <None Remove="Events\ReleaseEvent.json" />
+    <None Remove="Events\RepositoryEvent.json" />
+    <None Remove="Events\StatusEvent.json" />
+    <None Remove="Events\TeamAddEvent.json" />
+    <None Remove="Events\TeamEvent.json" />
+    <None Remove="Events\WatchEvent.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Events\CommitCommentEvent.json" />
+    <EmbeddedResource Include="Events\CreateEvent.json" />
+    <EmbeddedResource Include="Events\DeleteEvent.json" />
+    <EmbeddedResource Include="Events\DeploymentEvent.json" />
+    <EmbeddedResource Include="Events\DeploymentStatusEvent.json" />
+    <EmbeddedResource Include="Events\ForkEvent.json" />
+    <EmbeddedResource Include="Events\GollumEvent.json" />
+    <EmbeddedResource Include="Events\InstallationEvent.json" />
+    <EmbeddedResource Include="Events\InstallationRepositoriesEvent.json" />
+    <EmbeddedResource Include="Events\IssueCommentEvent.json" />
+    <EmbeddedResource Include="Events\IssuesEvent.json" />
+    <EmbeddedResource Include="Events\LabelEvent.json" />
+    <EmbeddedResource Include="Events\MarketplacePurchaseEvent.json" />
+    <EmbeddedResource Include="Events\MemberEvent.json" />
+    <EmbeddedResource Include="Events\MembershipEvent.json" />
+    <EmbeddedResource Include="Events\MilestoneEvent.json" />
+    <EmbeddedResource Include="Events\OrganizationEvent.json" />
+    <EmbeddedResource Include="Events\OrgBlockEvent.json" />
+    <EmbeddedResource Include="Events\PageBuildEvent.json" />
+    <EmbeddedResource Include="Events\ProjectCardEvent.json" />
+    <EmbeddedResource Include="Events\ProjectColumnEvent.json" />
+    <EmbeddedResource Include="Events\ProjectEvent.json" />
+    <EmbeddedResource Include="Events\PublicEvent.json" />
+    <EmbeddedResource Include="Events\PullRequestEvent.json" />
+    <EmbeddedResource Include="Events\PullRequestReviewCommentEvent.json" />
+    <EmbeddedResource Include="Events\PullRequestReviewEvent.json" />
+    <EmbeddedResource Include="Events\PushEvent.json" />
+    <EmbeddedResource Include="Events\ReleaseEvent.json" />
+    <EmbeddedResource Include="Events\RepositoryEvent.json" />
+    <EmbeddedResource Include="Events\StatusEvent.json" />
+    <EmbeddedResource Include="Events\TeamAddEvent.json" />
+    <EmbeddedResource Include="Events\TeamEvent.json" />
+    <EmbeddedResource Include="Events\WatchEvent.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0" />
+    <PackageReference Include="xunit" Version="2.2.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
+  </ItemGroup>
+
+</Project>
