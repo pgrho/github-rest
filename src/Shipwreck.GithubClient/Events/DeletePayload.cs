@@ -17,5 +17,10 @@ namespace Shipwreck.GithubClient.Events
         [DefaultValue(null)]
         [DataMember, JsonProperty("ref")]
         public string Ref { get; set; }
+
+        [DefaultValue(default(AccountType))]
+        [DataMember, JsonProperty("pusher_type")]
+        [JsonConverter(typeof(StringEnumConverter))]
+        public AccountType PusherType { get; set; }
     }
 }
