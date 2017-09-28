@@ -157,5 +157,9 @@ namespace Shipwreck.GithubClient
         [DefaultValue(null)]
         [DataMember, JsonProperty("requested_reviewers")]
         public User[] RequestedReviewers { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("_links")]
+        public PullRequestLinks Links { get; set; }
     }
 }

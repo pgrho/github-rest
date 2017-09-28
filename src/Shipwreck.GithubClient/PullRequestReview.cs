@@ -41,5 +41,9 @@ namespace Shipwreck.GithubClient
         [DefaultValue(null)]
         [DataMember, JsonProperty("pull_request_url")]
         public string PullRequestUrl { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("_links")]
+        public PullRequestLinks Links { get; set; }
     }
 }

@@ -67,5 +67,9 @@ namespace Shipwreck.GithubClient
         [DefaultValue(null)]
         [DataMember, JsonProperty("reactions")]
         public ReactionSummary Reactions { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("_links")]
+        public PullRequestLinks Links { get; set; }
     }
 }
