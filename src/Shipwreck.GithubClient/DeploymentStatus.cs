@@ -40,6 +40,14 @@ namespace Shipwreck.GithubClient
         public string LogUrl { get; set; }
 
         [DefaultValue(null)]
+        [DataMember, JsonProperty("deployment_url")]
+        public string DeploymentUrl { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("repository_url")]
+        public string RepositoryUrl { get; set; }
+
+        [DefaultValue(null)]
         [DataMember, JsonProperty("environment_url")]
         public string EnvironmentUrl { get; set; }
 
