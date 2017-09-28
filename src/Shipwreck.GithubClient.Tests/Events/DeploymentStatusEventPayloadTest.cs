@@ -3,18 +3,67 @@ using Xunit;
 
 namespace Shipwreck.GithubClient.Events
 {
-    public sealed class CreatePayloadTest : ActivityPayloadTest
+    public sealed class DeploymentStatusEventPayloadTest : ActivityPayloadTest
     {
         [Fact]
         public void SampleDataTest()
         {
-            var actual = ReadAs<CreatePayload>("CreateEvent.json");
+            var actual = ReadAs<DeploymentStatusEventPayload>("DeploymentStatusEvent.json");
 
-            Assert.Equal("0.0.1", actual.Ref);
-            Assert.Equal(RefType.Tag, actual.RefType);
-            Assert.Equal("master", actual.MasterBranch);
-            Assert.Equal("", actual.Description);
-            Assert.Equal(AccountType.User, actual.PusherType);
+            Assert.Equal("https://api.github.com/repos/baxterthehacker/public-repo/deployments/710692/statuses/1115122", actual.DeploymentStatus.Url);
+            Assert.Equal(1115122, actual.DeploymentStatus.Id);
+            Assert.Equal(DeploymentState.Success, actual.DeploymentStatus.State);
+            Assert.Equal("baxterthehacker", actual.DeploymentStatus.Creator.Login);
+            Assert.Equal(6752317, actual.DeploymentStatus.Creator.Id);
+            Assert.Equal("https://avatars.githubusercontent.com/u/6752317?v=3", actual.DeploymentStatus.Creator.AvatarUrl);
+            Assert.Equal("", actual.DeploymentStatus.Creator.GravatarId);
+            Assert.Equal("https://api.github.com/users/baxterthehacker", actual.DeploymentStatus.Creator.Url);
+            Assert.Equal("https://github.com/baxterthehacker", actual.DeploymentStatus.Creator.HtmlUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/followers", actual.DeploymentStatus.Creator.FollowersUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/following{/other_user}", actual.DeploymentStatus.Creator.FollowingUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/gists{/gist_id}", actual.DeploymentStatus.Creator.GistsUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/starred{/owner}{/repo}", actual.DeploymentStatus.Creator.StarredUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/subscriptions", actual.DeploymentStatus.Creator.SubscriptionsUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/orgs", actual.DeploymentStatus.Creator.OrganizationsUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/repos", actual.DeploymentStatus.Creator.ReposUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/events{/privacy}", actual.DeploymentStatus.Creator.EventsUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/received_events", actual.DeploymentStatus.Creator.ReceivedEventsUrl);
+            Assert.Equal(AccountType.User, actual.DeploymentStatus.Creator.Type);
+            Assert.Equal(false, actual.DeploymentStatus.Creator.SiteAdmin);
+            Assert.Equal(null, actual.DeploymentStatus.Description);
+            Assert.Equal(null, actual.DeploymentStatus.TargetUrl);
+            Assert.Equal(DateTimeOffset.Parse("2015/05/05 23:40:39z"), actual.DeploymentStatus.CreatedAt);
+            Assert.Equal(DateTimeOffset.Parse("2015/05/05 23:40:39z"), actual.DeploymentStatus.UpdatedAt);
+            Assert.Equal("https://api.github.com/repos/baxterthehacker/public-repo/deployments/710692", actual.DeploymentStatus.DeploymentUrl);
+            Assert.Equal("https://api.github.com/repos/baxterthehacker/public-repo", actual.DeploymentStatus.RepositoryUrl);
+            Assert.Equal("https://api.github.com/repos/baxterthehacker/public-repo/deployments/710692", actual.Deployment.Url);
+            Assert.Equal(710692, actual.Deployment.Id);
+            Assert.Equal("9049f1265b7d61be4a8904a9a27120d2064dab3b", actual.Deployment.Sha);
+            Assert.Equal("master", actual.Deployment.Ref);
+            Assert.Equal("deploy", actual.Deployment.Task);
+            Assert.Equal("production", actual.Deployment.Environment);
+            Assert.Equal(null, actual.Deployment.Description);
+            Assert.Equal("baxterthehacker", actual.Deployment.Creator.Login);
+            Assert.Equal(6752317, actual.Deployment.Creator.Id);
+            Assert.Equal("https://avatars.githubusercontent.com/u/6752317?v=3", actual.Deployment.Creator.AvatarUrl);
+            Assert.Equal("", actual.Deployment.Creator.GravatarId);
+            Assert.Equal("https://api.github.com/users/baxterthehacker", actual.Deployment.Creator.Url);
+            Assert.Equal("https://github.com/baxterthehacker", actual.Deployment.Creator.HtmlUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/followers", actual.Deployment.Creator.FollowersUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/following{/other_user}", actual.Deployment.Creator.FollowingUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/gists{/gist_id}", actual.Deployment.Creator.GistsUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/starred{/owner}{/repo}", actual.Deployment.Creator.StarredUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/subscriptions", actual.Deployment.Creator.SubscriptionsUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/orgs", actual.Deployment.Creator.OrganizationsUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/repos", actual.Deployment.Creator.ReposUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/events{/privacy}", actual.Deployment.Creator.EventsUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/received_events", actual.Deployment.Creator.ReceivedEventsUrl);
+            Assert.Equal(AccountType.User, actual.Deployment.Creator.Type);
+            Assert.Equal(false, actual.Deployment.Creator.SiteAdmin);
+            Assert.Equal(DateTimeOffset.Parse("2015/05/05 23:40:38z"), actual.Deployment.CreatedAt);
+            Assert.Equal(DateTimeOffset.Parse("2015/05/05 23:40:38z"), actual.Deployment.UpdatedAt);
+            Assert.Equal("https://api.github.com/repos/baxterthehacker/public-repo/deployments/710692/statuses", actual.Deployment.StatusesUrl);
+            Assert.Equal("https://api.github.com/repos/baxterthehacker/public-repo", actual.Deployment.RepositoryUrl);
             Assert.Equal(35129377, actual.Repository.Id);
             Assert.Equal("public-repo", actual.Repository.Name);
             Assert.Equal("baxterthehacker/public-repo", actual.Repository.FullName);

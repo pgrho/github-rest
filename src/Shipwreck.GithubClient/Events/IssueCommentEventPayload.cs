@@ -8,7 +8,7 @@ using Newtonsoft.Json.Converters;
 namespace Shipwreck.GithubClient.Events
 {
     [Serializable, DataContract]
-    public class IssueCommentPayload : ActivityPayload
+    public class IssueCommentEventPayload : ActivityPayload
     {
         [DefaultValue(default(EditAction))]
         [DataMember, JsonProperty("action")]

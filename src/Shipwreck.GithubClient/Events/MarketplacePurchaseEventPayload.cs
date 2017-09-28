@@ -4,8 +4,7 @@ using System.Text;
 
 namespace Shipwreck.GithubClient.Events
 {
-    // TODO: MarketplacePurchasePayload
-    //class MarketplacePurchasePayload
+    // TODO:class MarketplacePurchaseEventPayload
     //{
     //}
 }

@@ -7,7 +7,7 @@ using Newtonsoft.Json.Converters;
 namespace Shipwreck.GithubClient.Events
 {
     [Serializable, DataContract]
-    public class CreatePayload : ActivityPayload
+    public class CreateEventPayload : ActivityPayload
     {
         [DefaultValue(default(RefType))]
         [DataMember, JsonProperty("ref_type")]

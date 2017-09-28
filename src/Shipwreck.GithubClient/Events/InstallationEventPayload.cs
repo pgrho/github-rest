@@ -7,15 +7,16 @@ using Newtonsoft.Json.Converters;
 namespace Shipwreck.GithubClient.Events
 {
     [Serializable, DataContract]
-    public class CommitCommentPayload : ActivityPayload
+    public class InstallationEventPayload : ActivityPayload
     {
-        [DefaultValue(default(EditAction))]
+        [DefaultValue(default(InstallationAction))]
         [DataMember, JsonProperty("action")]
         [JsonConverter(typeof(StringEnumConverter))]
-        public EditAction Action { get; set; }
+        public InstallationAction Action { get; set; }
 
         [DefaultValue(null)]
-        [DataMember, JsonProperty("comment")]
-        public CommitComment Comment { get; set; }
+        [DataMember, JsonProperty("installation")]
+        public Installation Installation { get; set; }
     }
+
 }

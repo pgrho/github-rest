@@ -3,75 +3,41 @@ using Xunit;
 
 namespace Shipwreck.GithubClient.Events
 {
-    public sealed class IssueCommentPayloadTest : ActivityPayloadTest
+    public sealed class DeploymentEventPayloadTest : ActivityPayloadTest
     {
         [Fact]
         public void SampleDataTest()
         {
-            var actual = ReadAs<IssueCommentPayload>("IssueCommentEvent.json");
+            var actual = ReadAs<DeploymentEventPayload>("DeploymentEvent.json");
 
-            Assert.Equal(EditAction.Created, actual.Action);
-            Assert.Equal("https://api.github.com/repos/baxterthehacker/public-repo/issues/2", actual.Issue.Url);
-            Assert.Equal("https://api.github.com/repos/baxterthehacker/public-repo/issues/2/labels{/name}", actual.Issue.LabelsUrl);
-            Assert.Equal("https://api.github.com/repos/baxterthehacker/public-repo/issues/2/comments", actual.Issue.CommentsUrl);
-            Assert.Equal("https://api.github.com/repos/baxterthehacker/public-repo/issues/2/events", actual.Issue.EventsUrl);
-            Assert.Equal("https://github.com/baxterthehacker/public-repo/issues/2", actual.Issue.HtmlUrl);
-            Assert.Equal(73464126, actual.Issue.Id);
-            Assert.Equal(2, actual.Issue.Number);
-            Assert.Equal("Spelling error in the README file", actual.Issue.Title);
-            Assert.Equal("baxterthehacker", actual.Issue.User.Login);
-            Assert.Equal(6752317, actual.Issue.User.Id);
-            Assert.Equal("https://avatars.githubusercontent.com/u/6752317?v=3", actual.Issue.User.AvatarUrl);
-            Assert.Equal("", actual.Issue.User.GravatarId);
-            Assert.Equal("https://api.github.com/users/baxterthehacker", actual.Issue.User.Url);
-            Assert.Equal("https://github.com/baxterthehacker", actual.Issue.User.HtmlUrl);
-            Assert.Equal("https://api.github.com/users/baxterthehacker/followers", actual.Issue.User.FollowersUrl);
-            Assert.Equal("https://api.github.com/users/baxterthehacker/following{/other_user}", actual.Issue.User.FollowingUrl);
-            Assert.Equal("https://api.github.com/users/baxterthehacker/gists{/gist_id}", actual.Issue.User.GistsUrl);
-            Assert.Equal("https://api.github.com/users/baxterthehacker/starred{/owner}{/repo}", actual.Issue.User.StarredUrl);
-            Assert.Equal("https://api.github.com/users/baxterthehacker/subscriptions", actual.Issue.User.SubscriptionsUrl);
-            Assert.Equal("https://api.github.com/users/baxterthehacker/orgs", actual.Issue.User.OrganizationsUrl);
-            Assert.Equal("https://api.github.com/users/baxterthehacker/repos", actual.Issue.User.ReposUrl);
-            Assert.Equal("https://api.github.com/users/baxterthehacker/events{/privacy}", actual.Issue.User.EventsUrl);
-            Assert.Equal("https://api.github.com/users/baxterthehacker/received_events", actual.Issue.User.ReceivedEventsUrl);
-            Assert.Equal(AccountType.User, actual.Issue.User.Type);
-            Assert.Equal(false, actual.Issue.User.SiteAdmin);
-            Assert.Equal("https://api.github.com/repos/baxterthehacker/public-repo/labels/bug", actual.Issue.Labels[0].Url);
-            Assert.Equal("bug", actual.Issue.Labels[0].Name);
-            Assert.Equal("fc2929", actual.Issue.Labels[0].Color);
-            Assert.Equal(ItemState.Open, actual.Issue.State);
-            Assert.Equal(false, actual.Issue.Locked);
-            Assert.Equal(null, actual.Issue.Assignee);
-            Assert.Equal(null, actual.Issue.Milestone);
-            Assert.Equal(1, actual.Issue.Comments);
-            Assert.Equal(DateTimeOffset.Parse("2015/05/05 23:40:28z"), actual.Issue.CreatedAt);
-            Assert.Equal(DateTimeOffset.Parse("2015/05/05 23:40:28z"), actual.Issue.UpdatedAt);
-            Assert.Equal(null, actual.Issue.ClosedAt);
-            Assert.Equal("It looks like you accidently spelled 'commit' with two 't's.", actual.Issue.Body);
-            Assert.Equal("https://api.github.com/repos/baxterthehacker/public-repo/issues/comments/99262140", actual.Comment.Url);
-            Assert.Equal("https://github.com/baxterthehacker/public-repo/issues/2#issuecomment-99262140", actual.Comment.HtmlUrl);
-            Assert.Equal("https://api.github.com/repos/baxterthehacker/public-repo/issues/2", actual.Comment.IssueUrl);
-            Assert.Equal(99262140, actual.Comment.Id);
-            Assert.Equal("baxterthehacker", actual.Comment.User.Login);
-            Assert.Equal(6752317, actual.Comment.User.Id);
-            Assert.Equal("https://avatars.githubusercontent.com/u/6752317?v=3", actual.Comment.User.AvatarUrl);
-            Assert.Equal("", actual.Comment.User.GravatarId);
-            Assert.Equal("https://api.github.com/users/baxterthehacker", actual.Comment.User.Url);
-            Assert.Equal("https://github.com/baxterthehacker", actual.Comment.User.HtmlUrl);
-            Assert.Equal("https://api.github.com/users/baxterthehacker/followers", actual.Comment.User.FollowersUrl);
-            Assert.Equal("https://api.github.com/users/baxterthehacker/following{/other_user}", actual.Comment.User.FollowingUrl);
-            Assert.Equal("https://api.github.com/users/baxterthehacker/gists{/gist_id}", actual.Comment.User.GistsUrl);
-            Assert.Equal("https://api.github.com/users/baxterthehacker/starred{/owner}{/repo}", actual.Comment.User.StarredUrl);
-            Assert.Equal("https://api.github.com/users/baxterthehacker/subscriptions", actual.Comment.User.SubscriptionsUrl);
-            Assert.Equal("https://api.github.com/users/baxterthehacker/orgs", actual.Comment.User.OrganizationsUrl);
-            Assert.Equal("https://api.github.com/users/baxterthehacker/repos", actual.Comment.User.ReposUrl);
-            Assert.Equal("https://api.github.com/users/baxterthehacker/events{/privacy}", actual.Comment.User.EventsUrl);
-            Assert.Equal("https://api.github.com/users/baxterthehacker/received_events", actual.Comment.User.ReceivedEventsUrl);
-            Assert.Equal(AccountType.User, actual.Comment.User.Type);
-            Assert.Equal(false, actual.Comment.User.SiteAdmin);
-            Assert.Equal(DateTimeOffset.Parse("2015/05/05 23:40:28z"), actual.Comment.CreatedAt);
-            Assert.Equal(DateTimeOffset.Parse("2015/05/05 23:40:28z"), actual.Comment.UpdatedAt);
-            Assert.Equal("You are totally right! I'll get this fixed right away.", actual.Comment.Body);
+            Assert.Equal("https://api.github.com/repos/baxterthehacker/public-repo/deployments/710692", actual.Deployment.Url);
+            Assert.Equal(710692, actual.Deployment.Id);
+            Assert.Equal("9049f1265b7d61be4a8904a9a27120d2064dab3b", actual.Deployment.Sha);
+            Assert.Equal("master", actual.Deployment.Ref);
+            Assert.Equal("deploy", actual.Deployment.Task);
+            Assert.Equal("production", actual.Deployment.Environment);
+            Assert.Equal(null, actual.Deployment.Description);
+            Assert.Equal("baxterthehacker", actual.Deployment.Creator.Login);
+            Assert.Equal(6752317, actual.Deployment.Creator.Id);
+            Assert.Equal("https://avatars.githubusercontent.com/u/6752317?v=3", actual.Deployment.Creator.AvatarUrl);
+            Assert.Equal("", actual.Deployment.Creator.GravatarId);
+            Assert.Equal("https://api.github.com/users/baxterthehacker", actual.Deployment.Creator.Url);
+            Assert.Equal("https://github.com/baxterthehacker", actual.Deployment.Creator.HtmlUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/followers", actual.Deployment.Creator.FollowersUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/following{/other_user}", actual.Deployment.Creator.FollowingUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/gists{/gist_id}", actual.Deployment.Creator.GistsUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/starred{/owner}{/repo}", actual.Deployment.Creator.StarredUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/subscriptions", actual.Deployment.Creator.SubscriptionsUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/orgs", actual.Deployment.Creator.OrganizationsUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/repos", actual.Deployment.Creator.ReposUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/events{/privacy}", actual.Deployment.Creator.EventsUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/received_events", actual.Deployment.Creator.ReceivedEventsUrl);
+            Assert.Equal(AccountType.User, actual.Deployment.Creator.Type);
+            Assert.Equal(false, actual.Deployment.Creator.SiteAdmin);
+            Assert.Equal(DateTimeOffset.Parse("2015/05/05 23:40:38z"), actual.Deployment.CreatedAt);
+            Assert.Equal(DateTimeOffset.Parse("2015/05/05 23:40:38z"), actual.Deployment.UpdatedAt);
+            Assert.Equal("https://api.github.com/repos/baxterthehacker/public-repo/deployments/710692/statuses", actual.Deployment.StatusesUrl);
+            Assert.Equal("https://api.github.com/repos/baxterthehacker/public-repo", actual.Deployment.RepositoryUrl);
             Assert.Equal(35129377, actual.Repository.Id);
             Assert.Equal("public-repo", actual.Repository.Name);
             Assert.Equal("baxterthehacker/public-repo", actual.Repository.FullName);
@@ -133,8 +99,8 @@ namespace Shipwreck.GithubClient.Events
             Assert.Equal("https://api.github.com/repos/baxterthehacker/public-repo/labels{/name}", actual.Repository.LabelsUrl);
             Assert.Equal("https://api.github.com/repos/baxterthehacker/public-repo/releases{/id}", actual.Repository.ReleasesUrl);
             Assert.Equal(DateTimeOffset.Parse("2015/05/05 23:40:12z"), actual.Repository.CreatedAt);
-            Assert.Equal(DateTimeOffset.Parse("2015/05/05 23:40:12z"), actual.Repository.UpdatedAt);
-            Assert.Equal(DateTimeOffset.Parse("2015/05/05 23:40:27z"), actual.Repository.PushedAt);
+            Assert.Equal(DateTimeOffset.Parse("2015/05/05 23:40:30z"), actual.Repository.UpdatedAt);
+            Assert.Equal(DateTimeOffset.Parse("2015/05/05 23:40:38z"), actual.Repository.PushedAt);
             Assert.Equal("git://github.com/baxterthehacker/public-repo.git", actual.Repository.GitUrl);
             Assert.Equal("git@github.com:baxterthehacker/public-repo.git", actual.Repository.SshUrl);
             Assert.Equal("https://github.com/baxterthehacker/public-repo.git", actual.Repository.CloneUrl);

@@ -8,7 +8,7 @@ namespace Shipwreck.GithubClient.Events
         [Fact]
         public void SampleDataTest()
         {
-            var actual = ReadAs<PullRequestReviewCommentPayload>("PullRequestReviewCommentEvent.json");
+            var actual = ReadAs<PullRequestReviewCommentEventPayload>("PullRequestReviewCommentEvent.json");
             Assert.Equal(EditAction.Created, actual.Action);
             Assert.Equal("https://api.github.com/repos/baxterthehacker/public-repo/pulls/comments/29724692", actual.Comment.Url);
             Assert.Equal(29724692, actual.Comment.Id);

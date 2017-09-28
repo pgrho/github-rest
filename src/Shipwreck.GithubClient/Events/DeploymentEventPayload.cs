@@ -6,10 +6,10 @@ using Newtonsoft.Json;
 namespace Shipwreck.GithubClient.Events
 {
     [Serializable, DataContract]
-    public class DeploymentStatusPayload : DeploymentPayload
+    public class DeploymentEventPayload : ActivityPayload
     {
         [DefaultValue(null)]
-        [DataMember, JsonProperty("deployment_status")]
-        public DeploymentStatus DeploymentStatus { get; set; }
+        [DataMember, JsonProperty("deployment")]
+        public Deployment Deployment { get; set; }
     }
 }

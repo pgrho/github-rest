@@ -2,12 +2,12 @@ using Xunit;
 
 namespace Shipwreck.GithubClient.Events
 {
-    public sealed class InstallationRepositoriesPayloadTest : ActivityPayloadTest
+    public sealed class InstallationRepositoriesEventPayloadTest : ActivityPayloadTest
     {
         [Fact]
         public void SampleDataTest()
         {
-            var actual = ReadAs<InstallationRepositoriesPayload>("InstallationRepositoriesEvent.json");
+            var actual = ReadAs<InstallationRepositoriesEventPayload>("InstallationRepositoriesEvent.json");
 
             Assert.Equal(CollectionAction.Removed, actual.Action);
             Assert.Equal(2, actual.Installation.Id);

@@ -1,21 +1,46 @@
 using System;
+using System.Linq;
+using System.Collections.Generic;
 using Xunit;
 
 namespace Shipwreck.GithubClient.Events
 {
-    public sealed class GollumPayloadTest : ActivityPayloadTest
+
+    public sealed class CommitCommentEventPayloadTest : ActivityPayloadTest
     {
         [Fact]
         public void SampleDataTest()
         {
-            var actual = ReadAs<GollumPayload>("GollumEvent.json");
+            var actual = ReadAs<CommitCommentEventPayload>("CommitCommentEvent.json");
 
-            Assert.Equal("Home", actual.Pages[0].PageName);
-            Assert.Equal("Home", actual.Pages[0].Title);
-            Assert.Equal(null, actual.Pages[0].Summary);
-            Assert.Equal(GollumPageAction.Created, actual.Pages[0].Action);
-            Assert.Equal("91ea1bd42aa2ba166b86e8aefe049e9837214e67", actual.Pages[0].Sha);
-            Assert.Equal("https://github.com/baxterthehacker/public-repo/wiki/Home", actual.Pages[0].HtmlUrl);
+            Assert.Equal(EditAction.Created, actual.Action);
+            Assert.Equal("https://api.github.com/repos/baxterthehacker/public-repo/comments/11056394", actual.Comment.Url);
+            Assert.Equal("https://github.com/baxterthehacker/public-repo/commit/9049f1265b7d61be4a8904a9a27120d2064dab3b#commitcomment-11056394", actual.Comment.HtmlUrl);
+            Assert.Equal(11056394, actual.Comment.Id);
+            Assert.Equal("baxterthehacker", actual.Comment.User.Login);
+            Assert.Equal(6752317, actual.Comment.User.Id);
+            Assert.Equal("https://avatars.githubusercontent.com/u/6752317?v=3", actual.Comment.User.AvatarUrl);
+            Assert.Equal("", actual.Comment.User.GravatarId);
+            Assert.Equal("https://api.github.com/users/baxterthehacker", actual.Comment.User.Url);
+            Assert.Equal("https://github.com/baxterthehacker", actual.Comment.User.HtmlUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/followers", actual.Comment.User.FollowersUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/following{/other_user}", actual.Comment.User.FollowingUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/gists{/gist_id}", actual.Comment.User.GistsUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/starred{/owner}{/repo}", actual.Comment.User.StarredUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/subscriptions", actual.Comment.User.SubscriptionsUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/orgs", actual.Comment.User.OrganizationsUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/repos", actual.Comment.User.ReposUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/events{/privacy}", actual.Comment.User.EventsUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/received_events", actual.Comment.User.ReceivedEventsUrl);
+            Assert.Equal(AccountType.User, actual.Comment.User.Type);
+            Assert.Equal(false, actual.Comment.User.SiteAdmin);
+            Assert.Equal(null, actual.Comment.Position);
+            Assert.Equal(null, actual.Comment.Line);
+            Assert.Equal(null, actual.Comment.Path);
+            Assert.Equal("9049f1265b7d61be4a8904a9a27120d2064dab3b", actual.Comment.CommitId);
+            Assert.Equal(DateTimeOffset.Parse("2015/05/05 23:40:29z"), actual.Comment.CreatedAt);
+            Assert.Equal(DateTimeOffset.Parse("2015/05/05 23:40:29z"), actual.Comment.UpdatedAt);
+            Assert.Equal("This is a really good change! :+1:", actual.Comment.Body);
             Assert.Equal(35129377, actual.Repository.Id);
             Assert.Equal("public-repo", actual.Repository.Name);
             Assert.Equal("baxterthehacker/public-repo", actual.Repository.FullName);
@@ -78,7 +103,7 @@ namespace Shipwreck.GithubClient.Events
             Assert.Equal("https://api.github.com/repos/baxterthehacker/public-repo/releases{/id}", actual.Repository.ReleasesUrl);
             Assert.Equal(DateTimeOffset.Parse("2015/05/05 23:40:12z"), actual.Repository.CreatedAt);
             Assert.Equal(DateTimeOffset.Parse("2015/05/05 23:40:12z"), actual.Repository.UpdatedAt);
-            Assert.Equal(DateTimeOffset.Parse("2015/05/05 23:40:17z"), actual.Repository.PushedAt);
+            Assert.Equal(DateTimeOffset.Parse("2015/05/05 23:40:27z"), actual.Repository.PushedAt);
             Assert.Equal("git://github.com/baxterthehacker/public-repo.git", actual.Repository.GitUrl);
             Assert.Equal("git@github.com:baxterthehacker/public-repo.git", actual.Repository.SshUrl);
             Assert.Equal("https://github.com/baxterthehacker/public-repo.git", actual.Repository.CloneUrl);
@@ -94,28 +119,29 @@ namespace Shipwreck.GithubClient.Events
             Assert.Equal(true, actual.Repository.HasPages);
             Assert.Equal(0, actual.Repository.ForksCount);
             Assert.Equal(null, actual.Repository.MirrorUrl);
-            Assert.Equal(0, actual.Repository.OpenIssuesCount);
+            Assert.Equal(2, actual.Repository.OpenIssuesCount);
             Assert.Equal(0, actual.Repository.Forks);
-            Assert.Equal(0, actual.Repository.OpenIssues);
+            Assert.Equal(2, actual.Repository.OpenIssues);
             Assert.Equal(0, actual.Repository.Watchers);
             Assert.Equal("master", actual.Repository.DefaultBranch);
-            Assert.Equal("jasonrudolph", actual.Sender.Login);
-            Assert.Equal(2988, actual.Sender.Id);
-            Assert.Equal("https://avatars.githubusercontent.com/u/2988?v=3", actual.Sender.AvatarUrl);
+            Assert.Equal("baxterthehacker", actual.Sender.Login);
+            Assert.Equal(6752317, actual.Sender.Id);
+            Assert.Equal("https://avatars.githubusercontent.com/u/6752317?v=3", actual.Sender.AvatarUrl);
             Assert.Equal("", actual.Sender.GravatarId);
-            Assert.Equal("https://api.github.com/users/jasonrudolph", actual.Sender.Url);
-            Assert.Equal("https://github.com/jasonrudolph", actual.Sender.HtmlUrl);
-            Assert.Equal("https://api.github.com/users/jasonrudolph/followers", actual.Sender.FollowersUrl);
-            Assert.Equal("https://api.github.com/users/jasonrudolph/following{/other_user}", actual.Sender.FollowingUrl);
-            Assert.Equal("https://api.github.com/users/jasonrudolph/gists{/gist_id}", actual.Sender.GistsUrl);
-            Assert.Equal("https://api.github.com/users/jasonrudolph/starred{/owner}{/repo}", actual.Sender.StarredUrl);
-            Assert.Equal("https://api.github.com/users/jasonrudolph/subscriptions", actual.Sender.SubscriptionsUrl);
-            Assert.Equal("https://api.github.com/users/jasonrudolph/orgs", actual.Sender.OrganizationsUrl);
-            Assert.Equal("https://api.github.com/users/jasonrudolph/repos", actual.Sender.ReposUrl);
-            Assert.Equal("https://api.github.com/users/jasonrudolph/events{/privacy}", actual.Sender.EventsUrl);
-            Assert.Equal("https://api.github.com/users/jasonrudolph/received_events", actual.Sender.ReceivedEventsUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker", actual.Sender.Url);
+            Assert.Equal("https://github.com/baxterthehacker", actual.Sender.HtmlUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/followers", actual.Sender.FollowersUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/following{/other_user}", actual.Sender.FollowingUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/gists{/gist_id}", actual.Sender.GistsUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/starred{/owner}{/repo}", actual.Sender.StarredUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/subscriptions", actual.Sender.SubscriptionsUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/orgs", actual.Sender.OrganizationsUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/repos", actual.Sender.ReposUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/events{/privacy}", actual.Sender.EventsUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/received_events", actual.Sender.ReceivedEventsUrl);
             Assert.Equal(AccountType.User, actual.Sender.Type);
-            Assert.Equal(true, actual.Sender.SiteAdmin);
+            Assert.Equal(false, actual.Sender.SiteAdmin);
         }
     }
+
 }
