@@ -88,6 +88,10 @@ namespace Shipwreck.GithubClient
         [DataMember, JsonProperty("default_branch")]
         public string DefaultBranch { get; set; }
 
+        [DefaultValue(false)]
+        [DataMember, JsonProperty("public")]
+        public bool Public { get; set; }
+
         [DefaultValue(0)]
         [DataMember, JsonProperty("open_issues_count")]
         public int OpenIssuesCount { get; set; }
