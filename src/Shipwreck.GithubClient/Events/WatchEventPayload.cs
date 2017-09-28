@@ -7,11 +7,11 @@ using Newtonsoft.Json.Converters;
 namespace Shipwreck.GithubClient.Events
 {
     [Serializable, DataContract]
-    public class RepositoryEventPayload : ActivityPayload
+    public class WatchEventPayload : ActivityPayload
     {
-        [DefaultValue(default(RepositoryAction))]
+        [DefaultValue(default(WatchAction))]
         [DataMember, JsonProperty("action")]
         [JsonConverter(typeof(StringEnumConverter))]
-        public RepositoryAction Action { get; set; }
+        public WatchAction Action { get; set; }
     }
 }

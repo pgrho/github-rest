@@ -44,6 +44,6 @@ namespace Shipwreck.GithubClient.Events
 
         [DefaultValue(null)]
         [DataMember, JsonProperty("branches")]
-        public Branch[] branches { get; set; }
+        public Branch[] Branches { get; set; }
     }
 }

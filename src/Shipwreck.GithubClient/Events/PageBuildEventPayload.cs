@@ -13,6 +13,4 @@ namespace Shipwreck.GithubClient.Events
     // TODO: class TeamEventPayload {}
 
     // TODO: class TeamAddEventPayload {}
-
-    // TODO: class WatchEventPayload {}
 }
