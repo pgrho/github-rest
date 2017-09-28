@@ -30,6 +30,10 @@ namespace Shipwreck.GithubClient
         [JsonConverter(typeof(StringEnumConverter))]
         public TeamPrivacy Privacy { get; set; }
 
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("slug")]
+        public string Slug { get; set; }
+
         [DefaultValue(default(Permission))]
         [DataMember, JsonProperty("permission")]
         [JsonConverter(typeof(StringEnumConverter))]
@@ -50,5 +54,13 @@ namespace Shipwreck.GithubClient
         [DefaultValue(null)]
         [DataMember, JsonProperty("ldap_distinguished_name")]
         public string LdapDistinguishedName { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("members_url")]
+        public string MembersUrl { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("repositories_url")]
+        public string RepositoriesUrl { get; set; }
     }
 }

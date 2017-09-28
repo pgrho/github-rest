@@ -21,6 +21,10 @@ namespace Shipwreck.GithubClient
         public string HtmlUrl { get; set; }
 
         [DefaultValue(null)]
+        [DataMember, JsonProperty("issue_url")]
+        public string IssueUrl { get; set; }
+
+        [DefaultValue(null)]
         [DataMember, JsonProperty("body")]
         public string Body { get; set; }
 

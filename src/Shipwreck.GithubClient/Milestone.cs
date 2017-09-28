@@ -9,6 +9,10 @@ namespace Shipwreck.GithubClient
     [Serializable, DataContract]
     public class Milestone
     {
+        [DefaultValue(0)]
+        [DataMember, JsonProperty("id")]
+        public int Id { get; set; }
+
         [DefaultValue(null)]
         [DataMember, JsonProperty("url")]
         public string Url { get; set; }
@@ -16,6 +20,10 @@ namespace Shipwreck.GithubClient
         [DefaultValue(null)]
         [DataMember, JsonProperty("html_url")]
         public string HtmlUrl { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("labels_url")]
+        public string LabelsUrl { get; set; }
 
         [DefaultValue(0)]
         [DataMember, JsonProperty("number")]
@@ -49,6 +57,10 @@ namespace Shipwreck.GithubClient
         [DefaultValue(typeof(DateTimeOffset), "0001-01-01T00:00:00Z")]
         [DataMember, JsonProperty("created_at")]
         public DateTimeOffset CreatedAt { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("updated_at")]
+        public DateTimeOffset? UpdatedAt { get; set; }
 
         [DefaultValue(null)]
         [DataMember, JsonProperty("due_on")]

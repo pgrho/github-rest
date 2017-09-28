@@ -13,7 +13,7 @@ namespace Shipwreck.GithubClient.Events
         [DefaultValue(default(EditAction))]
         [DataMember, JsonProperty("action")]
         [JsonConverter(typeof(StringEnumConverter))]
-        public EditAction Action { get; set; }
+        public CollectionAction Action { get; set; }
 
         // TODO: changes
         [DefaultValue(null)]

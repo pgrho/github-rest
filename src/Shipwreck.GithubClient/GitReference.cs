@@ -31,5 +31,9 @@ namespace Shipwreck.GithubClient
         [DefaultValue(null)]
         [DataMember, JsonProperty("repository")]
         public Repository Repository { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("repo")]
+        public Repository Repo { get; set; }
     }
 }

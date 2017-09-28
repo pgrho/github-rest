@@ -31,6 +31,10 @@ namespace Shipwreck.GithubClient
         public string Body { get; set; }
 
         [DefaultValue(null)]
+        [DataMember, JsonProperty("submitted_at")]
+        public DateTimeOffset? SubmittedAt { get; set; }
+
+        [DefaultValue(null)]
         [DataMember, JsonProperty("html_url")]
         public string HtmlUrl { get; set; }
 

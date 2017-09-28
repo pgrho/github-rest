@@ -27,5 +27,9 @@ namespace Shipwreck.GithubClient.Events
         [DefaultValue(null)]
         [DataMember, JsonProperty("changes")]
         public Dictionary<string, string> Changes { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("installation")]
+        public Installation Installation { get; set; }
     }
 }

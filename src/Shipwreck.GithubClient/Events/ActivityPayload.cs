@@ -13,6 +13,10 @@ namespace Shipwreck.GithubClient.Events
         public Repository Repository { get; set; }
 
         [DefaultValue(null)]
+        [DataMember, JsonProperty("organization")]
+        public Organization Organization { get; set; }
+
+        [DefaultValue(null)]
         [DataMember, JsonProperty("sender")]
         public User Sender { get; set; }
     }

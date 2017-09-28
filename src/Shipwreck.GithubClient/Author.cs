@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Shipwreck.GithubClient
 {
@@ -19,6 +20,10 @@ namespace Shipwreck.GithubClient
         [DefaultValue(null)]
         [DataMember, JsonProperty("avatar_url")]
         public string AvatarUrl { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("gravatar_id")]
+        public string GravatarId { get; set; }
 
         [DefaultValue(null)]
         [DataMember, JsonProperty("url")]
@@ -66,7 +71,8 @@ namespace Shipwreck.GithubClient
 
         [DefaultValue(null)]
         [DataMember, JsonProperty("type")]
-        public string Type { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public AccountType Type { get; set; }
 
         [DefaultValue(false)]
         [DataMember, JsonProperty("site_admin")]

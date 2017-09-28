@@ -310,6 +310,10 @@ namespace Shipwreck.GithubClient
         [DataMember, JsonProperty("releases_url")]
         public string ReleasesUrl { get; set; }
 
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("deployments_url")]
+        public string DeploymentsUrl { get; set; }
+
         #endregion Url
     }
 }

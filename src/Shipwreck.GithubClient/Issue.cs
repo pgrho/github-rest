@@ -18,6 +18,10 @@ namespace Shipwreck.GithubClient
         public string Url { get; set; }
 
         [DefaultValue(null)]
+        [DataMember, JsonProperty("labels_url")]
+        public string LabelsUrl { get; set; }
+
+        [DefaultValue(null)]
         [DataMember, JsonProperty("html_url")]
         public string HtmlUrl { get; set; }
 

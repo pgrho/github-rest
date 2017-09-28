@@ -1,0 +1,123 @@
+using System;
+using Xunit;
+
+namespace Shipwreck.GithubClient.Events
+{
+    public sealed class RepositoryEventPayloadTest : ActivityPayloadTest
+    {
+        [Fact]
+        public void SampleDataTest()
+        {
+            var actual = ReadAs<RepositoryEventPayload>("RepositoryEvent.json");
+            Assert.Equal(RepositoryAction.Created, actual.Action);
+            Assert.Equal(27496774, actual.Repository.Id);
+            Assert.Equal("new-repository", actual.Repository.Name);
+            Assert.Equal("baxterandthehackers/new-repository", actual.Repository.FullName);
+            Assert.Equal("baxterandthehackers", actual.Repository.Owner.Login);
+            Assert.Equal(7649605, actual.Repository.Owner.Id);
+            Assert.Equal("https://avatars.githubusercontent.com/u/7649605?v=3", actual.Repository.Owner.AvatarUrl);
+            Assert.Equal("", actual.Repository.Owner.GravatarId);
+            Assert.Equal("https://api.github.com/users/baxterandthehackers", actual.Repository.Owner.Url);
+            Assert.Equal("https://github.com/baxterandthehackers", actual.Repository.Owner.HtmlUrl);
+            Assert.Equal("https://api.github.com/users/baxterandthehackers/followers", actual.Repository.Owner.FollowersUrl);
+            Assert.Equal("https://api.github.com/users/baxterandthehackers/following{/other_user}", actual.Repository.Owner.FollowingUrl);
+            Assert.Equal("https://api.github.com/users/baxterandthehackers/gists{/gist_id}", actual.Repository.Owner.GistsUrl);
+            Assert.Equal("https://api.github.com/users/baxterandthehackers/starred{/owner}{/repo}", actual.Repository.Owner.StarredUrl);
+            Assert.Equal("https://api.github.com/users/baxterandthehackers/subscriptions", actual.Repository.Owner.SubscriptionsUrl);
+            Assert.Equal("https://api.github.com/users/baxterandthehackers/orgs", actual.Repository.Owner.OrganizationsUrl);
+            Assert.Equal("https://api.github.com/users/baxterandthehackers/repos", actual.Repository.Owner.ReposUrl);
+            Assert.Equal("https://api.github.com/users/baxterandthehackers/events{/privacy}", actual.Repository.Owner.EventsUrl);
+            Assert.Equal("https://api.github.com/users/baxterandthehackers/received_events", actual.Repository.Owner.ReceivedEventsUrl);
+            Assert.Equal(AccountType.Organization, actual.Repository.Owner.Type);
+            Assert.Equal(false, actual.Repository.Owner.SiteAdmin);
+            Assert.Equal(true, actual.Repository.Private);
+            Assert.Equal("https://github.com/baxterandthehackers/new-repository", actual.Repository.HtmlUrl);
+            Assert.Equal("", actual.Repository.Description);
+            Assert.Equal(false, actual.Repository.Fork);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository", actual.Repository.Url);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/forks", actual.Repository.ForksUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/keys{/key_id}", actual.Repository.KeysUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/collaborators{/collaborator}", actual.Repository.CollaboratorsUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/teams", actual.Repository.TeamsUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/hooks", actual.Repository.HooksUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/issues/events{/number}", actual.Repository.IssueEventsUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/events", actual.Repository.EventsUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/assignees{/user}", actual.Repository.AssigneesUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/branches{/branch}", actual.Repository.BranchesUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/tags", actual.Repository.TagsUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/git/blobs{/sha}", actual.Repository.BlobsUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/git/tags{/sha}", actual.Repository.GitTagsUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/git/refs{/sha}", actual.Repository.GitRefsUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/git/trees{/sha}", actual.Repository.TreesUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/statuses/{sha}", actual.Repository.StatusesUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/languages", actual.Repository.LanguagesUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/stargazers", actual.Repository.StargazersUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/contributors", actual.Repository.ContributorsUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/subscribers", actual.Repository.SubscribersUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/subscription", actual.Repository.SubscriptionUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/commits{/sha}", actual.Repository.CommitsUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/git/commits{/sha}", actual.Repository.GitCommitsUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/comments{/number}", actual.Repository.CommentsUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/issues/comments/{number}", actual.Repository.IssueCommentUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/contents/{+path}", actual.Repository.ContentsUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/compare/{base}...{head}", actual.Repository.CompareUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/merges", actual.Repository.MergesUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/{archive_format}{/ref}", actual.Repository.ArchiveUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/downloads", actual.Repository.DownloadsUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/issues{/number}", actual.Repository.IssuesUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/pulls{/number}", actual.Repository.PullsUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/milestones{/number}", actual.Repository.MilestonesUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/notifications{?since,all,participating}", actual.Repository.NotificationsUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/labels{/name}", actual.Repository.LabelsUrl);
+            Assert.Equal("https://api.github.com/repos/baxterandthehackers/new-repository/releases{/id}", actual.Repository.ReleasesUrl);
+            Assert.Equal(DateTimeOffset.Parse("2014/12/03 16:39:25z"), actual.Repository.CreatedAt);
+            Assert.Equal(DateTimeOffset.Parse("2014/12/03 16:39:25z"), actual.Repository.UpdatedAt);
+            Assert.Equal(DateTimeOffset.Parse("2014/12/03 16:39:25z"), actual.Repository.PushedAt);
+            Assert.Equal("git://github.com/baxterandthehackers/new-repository.git", actual.Repository.GitUrl);
+            Assert.Equal("git@github.com:baxterandthehackers/new-repository.git", actual.Repository.SshUrl);
+            Assert.Equal("https://github.com/baxterandthehackers/new-repository.git", actual.Repository.CloneUrl);
+            Assert.Equal("https://github.com/baxterandthehackers/new-repository", actual.Repository.SvnUrl);
+            Assert.Equal(null, actual.Repository.Homepage);
+            Assert.Equal(0, actual.Repository.Size);
+            Assert.Equal(0, actual.Repository.StargazersCount);
+            Assert.Equal(0, actual.Repository.WatchersCount);
+            Assert.Equal(null, actual.Repository.Language);
+            Assert.Equal(true, actual.Repository.HasIssues);
+            Assert.Equal(true, actual.Repository.HasDownloads);
+            Assert.Equal(true, actual.Repository.HasWiki);
+            Assert.Equal(false, actual.Repository.HasPages);
+            Assert.Equal(0, actual.Repository.ForksCount);
+            Assert.Equal(null, actual.Repository.MirrorUrl);
+            Assert.Equal(0, actual.Repository.OpenIssuesCount);
+            Assert.Equal(0, actual.Repository.Forks);
+            Assert.Equal(0, actual.Repository.OpenIssues);
+            Assert.Equal(0, actual.Repository.Watchers);
+            Assert.Equal("master", actual.Repository.DefaultBranch);
+            Assert.Equal("baxterandthehackers", actual.Organization.Login);
+            Assert.Equal(7649605, actual.Organization.Id);
+            Assert.Equal("https://api.github.com/orgs/baxterandthehackers", actual.Organization.Url);
+            Assert.Equal("https://api.github.com/orgs/baxterandthehackers/repos", actual.Organization.ReposUrl);
+            Assert.Equal("https://api.github.com/orgs/baxterandthehackers/events", actual.Organization.EventsUrl);
+            Assert.Equal("https://api.github.com/orgs/baxterandthehackers/members{/member}", actual.Organization.MembersUrl);
+            Assert.Equal("https://api.github.com/orgs/baxterandthehackers/public_members{/member}", actual.Organization.PublicMembersUrl);
+            Assert.Equal("https://avatars.githubusercontent.com/u/7649605?v=2", actual.Organization.AvatarUrl);
+            Assert.Equal("baxterthehacker", actual.Sender.Login);
+            Assert.Equal(6752317, actual.Sender.Id);
+            Assert.Equal("https://avatars.githubusercontent.com/u/6752317?v=2", actual.Sender.AvatarUrl);
+            Assert.Equal("", actual.Sender.GravatarId);
+            Assert.Equal("https://api.github.com/users/baxterthehacker", actual.Sender.Url);
+            Assert.Equal("https://github.com/baxterthehacker", actual.Sender.HtmlUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/followers", actual.Sender.FollowersUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/following{/other_user}", actual.Sender.FollowingUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/gists{/gist_id}", actual.Sender.GistsUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/starred{/owner}{/repo}", actual.Sender.StarredUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/subscriptions", actual.Sender.SubscriptionsUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/orgs", actual.Sender.OrganizationsUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/repos", actual.Sender.ReposUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/events{/privacy}", actual.Sender.EventsUrl);
+            Assert.Equal("https://api.github.com/users/baxterthehacker/received_events", actual.Sender.ReceivedEventsUrl);
+            Assert.Equal(AccountType.User, actual.Sender.Type);
+            Assert.Equal(false, actual.Sender.SiteAdmin);
+        }
+    }
+}

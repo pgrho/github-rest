@@ -6,7 +6,7 @@ namespace Shipwreck.GithubClient
     public enum RefType
     {
         [EnumMember(Value = "repository")]
-        Repositoy,
+        Repository,
 
         [EnumMember(Value = "branch")]
         Branch,

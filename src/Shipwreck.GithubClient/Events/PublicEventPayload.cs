@@ -4,6 +4,6 @@ using System.Runtime.Serialization;
 namespace Shipwreck.GithubClient.Events
 {
     [Serializable, DataContract]
-    public class PublicEvent : ActivityPayload
+    public class PublicEventPayload : ActivityPayload
     { }
 }

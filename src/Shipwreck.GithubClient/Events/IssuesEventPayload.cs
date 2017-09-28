@@ -8,24 +8,28 @@ using Newtonsoft.Json.Converters;
 namespace Shipwreck.GithubClient.Events
 {
     [Serializable, DataContract]
-    public class PullRequestCommentPayload : ActivityPayload
+    public class IssuesEventPayload : ActivityPayload
     {
-        [DefaultValue(default(EditAction))]
+        [DefaultValue(default(IssueAction))]
         [DataMember, JsonProperty("action")]
         [JsonConverter(typeof(StringEnumConverter))]
-        public EditAction Action { get; set; }
+        public IssueAction Action { get; set; }
 
         [DefaultValue(null)]
-        [DataMember, JsonProperty("pull_request")]
-        public PullRequest PullRequest { get; set; }
-
-        [DefaultValue(null)]
-        [DataMember, JsonProperty("comment")]
-        public PullRequestReviewComment Comment { get; set; }
+        [DataMember, JsonProperty("issue")]
+        public Issue Issue { get; set; }
 
         // TODO: changes
         [DefaultValue(null)]
         [DataMember, JsonProperty("changes")]
         public Dictionary<string, string> Changes { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("assignee")]
+        public User Assignee { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("label")]
+        public Label Label { get; set; }
     }
 }

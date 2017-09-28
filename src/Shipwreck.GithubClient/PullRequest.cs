@@ -37,6 +37,22 @@ namespace Shipwreck.GithubClient
         [DataMember, JsonProperty("statuses_url")]
         public string StatusesUrl { get; set; }
 
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("commits_url")]
+        public string CommitsUrl { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("review_comments_url")]
+        public string ReviewCommentsUrl { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("review_comment_url")]
+        public string ReviewCommentUrl { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("comments_url")]
+        public string CommentsUrl { get; set; }
+
         [DefaultValue(0)]
         [DataMember, JsonProperty("number")]
         public int Number { get; set; }
@@ -113,6 +129,10 @@ namespace Shipwreck.GithubClient
         [DefaultValue(0)]
         [DataMember, JsonProperty("comments")]
         public int Comments { get; set; }
+
+        [DefaultValue(0)]
+        [DataMember, JsonProperty("review_comments")]
+        public int ReviewComments { get; set; }
 
         [DefaultValue(0)]
         [DataMember, JsonProperty("commits")]

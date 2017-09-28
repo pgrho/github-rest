@@ -9,9 +9,21 @@ namespace Shipwreck.GithubClient.Events
     [Serializable, DataContract]
     public class StatusEventPayload : ActivityPayload
     {
+        [DefaultValue(0)]
+        [DataMember, JsonProperty("id")]
+        public int Id { get; set; }
+
         [DefaultValue(null)]
         [DataMember, JsonProperty("sha")]
         public string Sha { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("name")]
+        public string Name { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("context")]
+        public string Context { get; set; }
 
         [DefaultValue(default(CommitState))]
         [DataMember, JsonProperty("state")]
@@ -25,6 +37,10 @@ namespace Shipwreck.GithubClient.Events
         [DefaultValue(null)]
         [DataMember, JsonProperty("target_url")]
         public string TargetUrl { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("commit")]
+        public Commit Commit { get; set; }
 
         [DefaultValue(null)]
         [DataMember, JsonProperty("branches")]

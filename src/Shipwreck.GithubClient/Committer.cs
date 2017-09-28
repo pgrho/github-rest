@@ -13,6 +13,10 @@ namespace Shipwreck.GithubClient
         public string Name { get; set; }
 
         [DefaultValue(null)]
+        [DataMember, JsonProperty("username")]
+        public string Username { get; set; }
+
+        [DefaultValue(null)]
         [DataMember, JsonProperty("email")]
         public string Email { get; set; }
 
