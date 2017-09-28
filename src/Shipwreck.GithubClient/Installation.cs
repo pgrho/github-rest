@@ -29,5 +29,9 @@ namespace Shipwreck.GithubClient
         [DefaultValue(null)]
         [DataMember, JsonProperty("repositories_url")]
         public string RepositoriesUrl { get; set; }
+
+        [DefaultValue(null)]
+        [DataMember, JsonProperty("html_url")]
+        public string HtmlUrl { get; set; }
     }
 }
