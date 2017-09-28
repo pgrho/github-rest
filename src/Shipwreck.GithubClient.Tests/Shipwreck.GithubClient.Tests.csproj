@@ -86,4 +86,8 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Shipwreck.GithubClient\Shipwreck.GithubClient.csproj" />
+  </ItemGroup>
+
 </Project>
