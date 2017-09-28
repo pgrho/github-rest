@@ -18,6 +18,10 @@ namespace Shipwreck.GithubClient
         public string Title { get; set; }
 
         [DefaultValue(null)]
+        [DataMember, JsonProperty("summary")]
+        public string Summary { get; set; }
+
+        [DefaultValue(null)]
         [DataMember, JsonProperty("action")]
         [JsonConverter(typeof(StringEnumConverter))]
         public GollumPageAction Action { get; set; }
