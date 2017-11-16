@@ -72,18 +72,22 @@ namespace Shipwreck.GithubClient
 
         [DefaultValue(typeof(DateTimeOffset), "0001-01-01T00:00:00Z")]
         [DataMember, JsonProperty("created_at")]
+        [JsonConverter(typeof(UnixEpochConverter))]
         public DateTimeOffset CreatedAt { get; set; }
 
         [DefaultValue(typeof(DateTimeOffset), "0001-01-01T00:00:00Z")]
         [DataMember, JsonProperty("updated_at")]
+        [JsonConverter(typeof(UnixEpochConverter))]
         public DateTimeOffset UpdatedAt { get; set; }
 
         [DefaultValue(null)]
         [DataMember, JsonProperty("closed_at")]
+        [JsonConverter(typeof(UnixEpochConverter))]
         public DateTimeOffset? ClosedAt { get; set; }
 
         [DefaultValue(null)]
         [DataMember, JsonProperty("merged_at")]
+        [JsonConverter(typeof(UnixEpochConverter))]
         public DateTimeOffset? MergedAt { get; set; }
 
         [DefaultValue(null)]

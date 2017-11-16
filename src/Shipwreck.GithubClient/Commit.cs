@@ -50,6 +50,7 @@ namespace Shipwreck.GithubClient
 
         [DefaultValue(null)]
         [DataMember, JsonProperty("timestamp")]
+        [JsonConverter(typeof(UnixEpochConverter))]
         public DateTimeOffset? Timestamp { get; set; }
     }
 }

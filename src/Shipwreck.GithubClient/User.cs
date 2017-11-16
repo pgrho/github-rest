@@ -18,6 +18,7 @@ namespace Shipwreck.GithubClient
 
         [DefaultValue(null)]
         [DataMember, JsonProperty("suspended_at")]
+        [JsonConverter(typeof(UnixEpochConverter))]
         public DateTimeOffset? SuspendedAt { get; set; }
 
         [DefaultValue(false)]

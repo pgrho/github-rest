@@ -22,6 +22,7 @@ namespace Shipwreck.GithubClient
 
         [DefaultValue(typeof(DateTimeOffset), "0001-01-01T00:00:00Z")]
         [DataMember, JsonProperty("date")]
+        [JsonConverter(typeof(UnixEpochConverter))]
         public DateTimeOffset Date { get; set; }
     }
 }

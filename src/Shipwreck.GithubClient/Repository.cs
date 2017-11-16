@@ -2,6 +2,7 @@ using System;
 using System.ComponentModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Shipwreck.GithubClient
 {
@@ -98,14 +99,17 @@ namespace Shipwreck.GithubClient
 
         [DefaultValue(null)]
         [DataMember, JsonProperty("pushed_at")]
+        [JsonConverter(typeof(UnixEpochConverter))]
         public DateTimeOffset? PushedAt { get; set; }
 
         [DefaultValue(typeof(DateTimeOffset), "0001-01-01T00:00:00Z")]
         [DataMember, JsonProperty("created_at")]
+        [JsonConverter(typeof(UnixEpochConverter))]
         public DateTimeOffset CreatedAt { get; set; }
 
         [DefaultValue(typeof(DateTimeOffset), "0001-01-01T00:00:00Z")]
         [DataMember, JsonProperty("updated_at")]
+        [JsonConverter(typeof(UnixEpochConverter))]
         public DateTimeOffset UpdatedAt { get; set; }
 
         [DefaultValue(null)]

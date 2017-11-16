@@ -32,6 +32,7 @@ namespace Shipwreck.GithubClient
 
         [DefaultValue(null)]
         [DataMember, JsonProperty("submitted_at")]
+        [JsonConverter(typeof(UnixEpochConverter))]
         public DateTimeOffset? SubmittedAt { get; set; }
 
         [DefaultValue(null)]
