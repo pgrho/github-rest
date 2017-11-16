@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
@@ -19,10 +18,9 @@ namespace Shipwreck.GithubClient.Events
         [DataMember, JsonProperty("issue")]
         public Issue Issue { get; set; }
 
-        // TODO: changes
         [DefaultValue(null)]
         [DataMember, JsonProperty("changes")]
-        public Dictionary<string, string> Changes { get; set; }
+        public IssueChanges Changes { get; set; }
 
         [DefaultValue(null)]
         [DataMember, JsonProperty("assignee")]

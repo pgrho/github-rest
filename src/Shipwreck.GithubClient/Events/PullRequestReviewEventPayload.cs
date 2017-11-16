@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
@@ -23,10 +22,8 @@ namespace Shipwreck.GithubClient.Events
         [DataMember, JsonProperty("review")]
         public PullRequestReview Review { get; set; }
 
-        // TODO: changes
-
         [DefaultValue(null)]
         [DataMember, JsonProperty("changes")]
-        public Dictionary<string, string> Changes { get; set; }
+        public CommentChanges Changes { get; set; }
     }
 }

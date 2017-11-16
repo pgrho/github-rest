@@ -23,9 +23,8 @@ namespace Shipwreck.GithubClient.Events
         [DataMember, JsonProperty("comment")]
         public PullRequestReviewComment Comment { get; set; }
 
-        // TODO: changes
         [DefaultValue(null)]
         [DataMember, JsonProperty("changes")]
-        public Dictionary<string, string> Changes { get; set; }
+        public CommentChanges Changes { get; set; }
     }
 }

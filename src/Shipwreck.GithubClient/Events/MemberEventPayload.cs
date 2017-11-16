@@ -15,10 +15,9 @@ namespace Shipwreck.GithubClient.Events
         [JsonConverter(typeof(StringEnumConverter))]
         public CollectionAction Action { get; set; }
 
-        // TODO: changes
         [DefaultValue(null)]
         [DataMember, JsonProperty("changes")]
-        public Dictionary<string, string> Changes { get; set; }
+        public MemberChanges Changes { get; set; }
 
         [DefaultValue(null)]
         [DataMember, JsonProperty("member")]

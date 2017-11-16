@@ -23,10 +23,9 @@ namespace Shipwreck.GithubClient.Events
         [DataMember, JsonProperty("pull_request")]
         public PullRequest PullRequest { get; set; }
 
-        // TODO: changes
         [DefaultValue(null)]
         [DataMember, JsonProperty("changes")]
-        public Dictionary<string, string> Changes { get; set; }
+        public IssueChanges Changes { get; set; }
 
         [DefaultValue(null)]
         [DataMember, JsonProperty("installation")]
